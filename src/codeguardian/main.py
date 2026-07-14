@@ -26,7 +26,7 @@ def scan(path: str):
     for file in files:
         print(file)
 
-    console.print(f"\n[green]Total Python files: {len(files)}[/green]")
+    console.print(f"\n[green]Total Python files: {len(files)}[/green]")  
 
 
 if __name__ == "__main__":
