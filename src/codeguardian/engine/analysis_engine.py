@@ -3,6 +3,12 @@ from codeguardian.analyzers.unused_import import (
     UnusedImportAnalyzer,
 )
 from codeguardian.analyzers.parser import PythonParser
+from codeguardian.analyzers.long_function import (
+    LongFunctionAnalyzer,
+)
+from codeguardian.analyzers.too_many_arguments import (
+    TooManyArgumentsAnalyzer,
+)
 from codeguardian.scanner import find_python_files
 
 
@@ -13,6 +19,8 @@ class AnalysisEngine:
 
         self.analyzers = [
             UnusedImportAnalyzer(),
+            LongFunctionAnalyzer(),
+            TooManyArgumentsAnalyzer(),
         ]
 
     def analyze_repository(self, directory: Path):

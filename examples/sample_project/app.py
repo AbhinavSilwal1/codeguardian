@@ -3,6 +3,9 @@ import sys
 
 
 def hello():
-    print("Hello CodeGuardian")
-
+    print("Hello")
     os.getcwd()
+
+
+def create_user(a, b, c, d, e, f):
+    pass

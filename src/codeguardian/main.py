@@ -32,18 +32,6 @@ def callback():
 # Scan a project directory
 @app.command()
 def scan(path: str):
-    console.print("\n[bold blue]Scanning project...[/bold blue]\n")
-
-    files = find_python_files(path)
-
-    print("Python files discovered:")
-    print("------------------------")
-
-    for file in files:
-        print(file)
-
-    console.print(f"\n[green]Total Python files: {len(files)}[/green]")
-
     engine = AnalysisEngine()
 
     issues = engine.analyze_repository(
