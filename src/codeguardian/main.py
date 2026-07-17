@@ -4,6 +4,8 @@ from codeguardian.scanner import find_python_files
 from pathlib import Path
 from codeguardian.engine import AnalysisEngine
 from rich.panel import Panel
+from codeguardian.config import load_config
+from codeguardian.formatters import issues_to_json
 
 
 app = typer.Typer()
@@ -31,7 +33,20 @@ def callback():
 
 # Scan a project directory
 @app.command()
-def scan(path: str):
+def scan(
+    path: str,
+    json_output: bool = typer.Option(
+        False,
+        "--json",
+        help="Output issues as JSON.",
+    ),
+    config: Path = typer.Option(
+        Path("codeguardian.yml"),
+        "--config",
+        help="Configuration file.",
+    ),
+):
+    config_data = load_config(config)
     engine = AnalysisEngine()
 
     issues = engine.analyze_repository(
@@ -54,6 +69,14 @@ def scan(path: str):
                 expand=False
             )
         )
+
+    if json_output:
+        print(
+            issues_to_json(
+                issues
+            )
+        )
+        return
 
 
 if __name__ == "__main__":
