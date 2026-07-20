@@ -23,6 +23,10 @@ build/
 dist/
 *.egg-info/
 
+# Frontend
+node_modules/
+.vite/
+
 # IDE
 .vscode/
 .idea/

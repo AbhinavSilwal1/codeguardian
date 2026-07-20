@@ -1,12 +1,10 @@
 function App() {
     return (
-        <main>
-            <h1>🛡️ CodeGuardian Dashboard</h1>
-
-            <p>
-                Full-stack static analysis for Python projects.
-            </p>
-        </main>
+        <div className="min-h-screen bg-slate-100 flex items-center justify-center">
+            <h1 className="text-5xl font-bold text-blue-600">
+                🛡️ CodeGuardian Dashboard
+            </h1>
+        </div>
     );
 }
 
