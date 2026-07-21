@@ -83,10 +83,33 @@ function App() {
                         }
                     />
 
+                    <StatCard
+                        title="High"
+                        value={
+                            data?.summary.severity_counts?.HIGH ?? 0
+                        }
+                    />
+
+                    <StatCard
+                        title="Medium"
+                        value={
+                            data?.summary.severity_counts?.MEDIUM ?? 0
+                        }
+                    />
+
+                    <StatCard
+                        title="Low"
+                        value={
+                            data?.summary.severity_counts?.LOW ?? 0
+                        }
+                    />
+
                 </section>
 
 
-                <IssuesTable />
+                <IssuesTable
+                    issues={data?.issues ?? []}
+                />
 
             </div>
 
