@@ -1,7 +1,12 @@
+import type { AnalysisResponse } from "../types/guardian";
+
+
 const API_URL = "http://localhost:8000";
 
 
-export async function analyzeProject(path: string) {
+export async function analyzeProject(
+    path: string
+): Promise<AnalysisResponse> {
     const response = await fetch(
         `${API_URL}/api/analyze?path=${encodeURIComponent(path)}`,
         {

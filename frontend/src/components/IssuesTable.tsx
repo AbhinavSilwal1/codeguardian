@@ -1,12 +1,5 @@
 import IssueRow from "./IssueRow";
-
-
-type Issue = {
-    category: string;
-    severity: string;
-    file: string;
-    line: number | null;
-};
+import type { Issue } from "../types/guardian";
 
 
 type IssuesTableProps = {
@@ -65,18 +58,7 @@ function IssuesTable({
                                 (issue, index) => (
                                     <IssueRow
                                         key={index}
-                                        category={
-                                            issue.category
-                                        }
-                                        severity={
-                                            issue.severity
-                                        }
-                                        file={
-                                            issue.file
-                                        }
-                                        line={
-                                            issue.line
-                                        }
+                                        issue={issue}
                                     />
                                 )
                             )}

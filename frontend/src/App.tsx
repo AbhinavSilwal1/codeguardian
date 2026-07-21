@@ -1,16 +1,15 @@
 import { useState } from "react";
-
 import Header from "./components/Header";
 import IssuesTable from "./components/IssuesTable";
 import StatCard from "./components/StatCard";
-
 import { analyzeProject } from "./api/guardianApi";
+import type { AnalysisResponse } from "./types/guardian";
 
 
 function App() {
 
     const [path, setPath] = useState("");
-    const [data, setData] = useState<any>(null);
+    const [data, setData] = useState<AnalysisResponse | null>(null);
     const [loading, setLoading] = useState(false);
 
 

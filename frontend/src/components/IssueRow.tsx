@@ -1,34 +1,34 @@
+import type { Issue } from "../types/guardian";
+
+
 type IssueRowProps = {
-    category: string;
-    severity: string;
-    file: string;
-    line: number | null;
+    issue: Issue;
 };
 
 
 function IssueRow({
-    category,
-    severity,
-    file,
-    line,
+    issue,
 }: IssueRowProps) {
+
     return (
         <tr className="border-t border-slate-200">
+
             <td className="px-4 py-3">
-                {category}
+                {issue.category}
             </td>
 
             <td className="px-4 py-3">
-                {severity}
+                {issue.severity}
             </td>
 
             <td className="px-4 py-3">
-                {file}
+                {issue.file}
             </td>
 
             <td className="px-4 py-3">
-                {line ?? "—"}
+                {issue.line ?? "—"}
             </td>
+
         </tr>
     );
 }
