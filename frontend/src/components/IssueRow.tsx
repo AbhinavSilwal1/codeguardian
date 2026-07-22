@@ -10,26 +10,65 @@ function IssueRow({
     issue,
 }: IssueRowProps) {
 
+    const severityStyles: Record<string, string> = {
+        HIGH:
+            "bg-red-100 text-red-700",
+
+        MEDIUM:
+            "bg-amber-100 text-amber-700",
+
+        LOW:
+            "bg-emerald-100 text-emerald-700",
+    };
+
+
+    const severityStyle =
+        severityStyles[issue.severity] ??
+        "bg-slate-100 text-slate-600";
+
+
     return (
-        <tr className="border-t border-slate-200">
 
-            <td className="px-4 py-3">
-                {issue.category}
+        <tr className="transition hover:bg-slate-50">
+
+            <td className="px-6 py-4">
+
+                <span className="font-medium text-slate-800">
+                    {issue.category}
+                </span>
+
             </td>
 
-            <td className="px-4 py-3">
-                {issue.severity}
+
+            <td className="px-6 py-4">
+
+                <span
+                    className={`inline-flex rounded-full px-3 py-1 text-xs font-semibold ${severityStyle}`}
+                >
+                    {issue.severity}
+                </span>
+
             </td>
 
-            <td className="px-4 py-3">
-                {issue.file}
+
+            <td className="max-w-md px-6 py-4">
+
+                <span
+                    className="block truncate text-sm text-slate-600"
+                    title={issue.file}
+                >
+                    {issue.file}
+                </span>
+
             </td>
 
-            <td className="px-4 py-3">
+
+            <td className="px-6 py-4 text-sm text-slate-600">
                 {issue.line ?? "—"}
             </td>
 
         </tr>
+
     );
 }
 
