@@ -5,7 +5,7 @@ import IssueBreakdown from "./components/IssueBreakdown";
 import IssuesTable from "./components/IssuesTable";
 import StatCard from "./components/StatCard";
 import SeverityBreakdown from "./components/SeverityBreakdown";
-import { analyzeProject } from "./api/guardianApi";
+import { analyzeProject, exportAnalysis, } from "./api/guardianApi";
 import type { AnalysisResponse } from "./types/guardian";
 
 
@@ -227,6 +227,36 @@ function App() {
                         />
 
 
+                        {/* Export Controls */}
+
+                        <div className="mb-6 flex justify-end">
+
+                            <button
+                                onClick={() =>
+                                    exportAnalysis(data)
+                                }
+                                className="
+                                    rounded-lg
+                                    border
+                                    border-slate-300
+                                    bg-white
+                                    px-4
+                                    py-2
+                                    text-sm
+                                    font-medium
+                                    text-slate-700
+                                    shadow-sm
+                                    transition
+                                    hover:bg-slate-50
+                                    hover:shadow
+                                "
+                            >
+                                ⬇️ Export JSON
+                            </button>
+
+                        </div>
+
+
                         {/* Summary Cards */}
 
                         <section className="mb-8 grid gap-6 md:grid-cols-2 lg:grid-cols-5">
@@ -292,6 +322,7 @@ function App() {
                             />
 
                         </div>
+
 
                         {/* Issues Table */}
 
