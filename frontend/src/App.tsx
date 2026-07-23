@@ -4,6 +4,7 @@ import AnalysisSummary from "./components/AnalysisSummary";
 import IssueBreakdown from "./components/IssueBreakdown";
 import IssuesTable from "./components/IssuesTable";
 import StatCard from "./components/StatCard";
+import SeverityBreakdown from "./components/SeverityBreakdown";
 import { analyzeProject } from "./api/guardianApi";
 import type { AnalysisResponse } from "./types/guardian";
 
@@ -271,14 +272,26 @@ function App() {
                         </section>
 
 
-                        {/* Issue Breakdown */}
+                        {/* Severity Breakdown */}
 
-                        <IssueBreakdown
-                            categoryCounts={
-                                data.summary.category_counts
+                        <SeverityBreakdown
+                            severityCounts={
+                                data.summary.severity_counts
                             }
                         />
 
+
+                        {/* Issue Breakdown */}
+
+                        <div className="mt-8">
+                        
+                            <IssueBreakdown
+                                categoryCounts={
+                                    data.summary.category_counts
+                                }
+                            />
+
+                        </div>
 
                         {/* Issues Table */}
 
